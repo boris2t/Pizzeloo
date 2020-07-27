@@ -1,13 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Paprika&display=swap');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+body {
+    font-family: "Paprika", sans-serif;
 }
 
 li, a {
-    font-family: "Paprika", sans-serif;
     font-size: 18px;
     color: black;
     text-decoration: none;
@@ -17,7 +13,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px 10%;
+    padding: 10px 10%;
 }
 
 .logoLink {
@@ -44,5 +40,3 @@ header {
 .nav_links li a:hover {
     color: orange;
 }
-
-
