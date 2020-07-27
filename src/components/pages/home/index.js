@@ -1,12 +1,11 @@
 import React from 'react';
-import fire from '../../../fire';
+import Layout from '../../layout';
 
 const Home = () => {
   return (
-    <>
+    <Layout>
       <h1>Home</h1>
-      <button onClick={() => fire.auth().signOut()}>Sign out</button>
-    </>
+    </Layout>
   );
 };
 

@@ -1,7 +1,9 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';
+import { Link } from 'react-router-dom'
 import fire from '../../../fire';
 import { AuthContext } from '../../../contexts/Auth';
+import Layout from '../../layout';
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -27,7 +29,7 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div>
+    <Layout>
       <h1>Log in</h1>
       <form onSubmit={handleLogin}>
         <label>
@@ -39,8 +41,9 @@ const Login = ({ history }) => {
           <input name="password" type="password" placeholder="Password" />
         </label>
         <button type="submit">Log in</button>
+        <p>Don't have an account yet? <Link to="signup">Sign Up!</Link></p>
       </form>
-    </div>
+    </Layout>
   );
 };
 
