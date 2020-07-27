@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router';
 import fire from "../../../fire";
+import Layout from '../../layout';
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
@@ -17,7 +18,7 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    <div>
+    <Layout>
       <h1>Sign up</h1>
       <form onSubmit={handleSignUp}>
         <label>
@@ -30,7 +31,7 @@ const SignUp = ({ history }) => {
         </label>
         <button type="submit">Sign Up</button>
       </form>
-    </div>
+    </Layout>
   );
 };
 
