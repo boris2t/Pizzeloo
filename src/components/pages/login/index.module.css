@@ -1,8 +1,7 @@
-
 .login-wrapper {
     background: url('../../../images/login-bg.png') no-repeat center;
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     justify-content: center;
