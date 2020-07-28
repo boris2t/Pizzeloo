@@ -20,20 +20,6 @@
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 
-.form::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.08);
-    transform: skewX(-11deg);
-    transform-origin: bottom left;
-    border-radius: 10px;
-    pointer-events: none;
-}
-
 .form h2 {
     text-align: center;
     letter-spacing: 1px;
@@ -68,11 +54,18 @@
     transition: .3s ease-out;
 }
 
-.form .input-group input:focus+label, .form .input-group input:valid+label {
+.form .input-group input:focus+label, .form .input-group input[value='v']+label {
     transform: translateY(-18px);
     color: #ff652f;
     font-size: .8rem;
 }
+
+.form .input-group p {
+    font-size: 16px;
+    color: red;
+    margin-top: -25px;
+}
+
 
 .submit-btn {
     display: block;
@@ -96,4 +89,8 @@
     margin-left: 5px;
     font-size: 14px;
     color: #ff652f;
+}
+h3 {
+    font-size: 18px;
+    color: red;
 }
