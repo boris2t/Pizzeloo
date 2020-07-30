@@ -3,7 +3,7 @@ import styles from './index.module.css'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/Auth'
 import getLinks from '../../functions/getLinks'
-import blackLogo from '../../images/logo3.png'
+import blackLogo from '../../images/logo-black.png'
 import whiteLogo from '../../images/logo-white.png'
 
 const Header = () => {
