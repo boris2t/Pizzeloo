@@ -5,6 +5,7 @@ import Login from './components/pages/login';
 import SignUp from './components/pages/signup';
 import { AuthProvider } from './contexts/Auth';
 //import PrivateRoute from './components/routes/PrivateRoute';
+import AnonymousRoute from './components/routes/AnonymousRoute';
 import Logout from './components/logout';
 
 const App = () => {
@@ -13,8 +14,8 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/signup' component={SignUp} />
+          <AnonymousRoute exact path='/login' component={Login} />
+          <AnonymousRoute exact path='/signup' component={SignUp} />
           <Route exact path='/logout' component={Logout} />
         </Switch>
       </Router>

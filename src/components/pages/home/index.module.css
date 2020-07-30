@@ -1,0 +1,40 @@
+.container {
+    position: relative;
+  }
+  .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 1s ease-in-out;
+    width: 100%;
+    height: 40vw;
+  }
+
+  .img.active {
+    opacity: 1;
+  }
+  .firstImg {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.82), 5%, rgba(255, 255, 255, 0)),
+    url('../../../images/pizza-1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .secondImg {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.82), 5%, rgba(255, 255, 255, 0)),
+    url('../../../images/pizza-2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .thirdImg {
+    background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.82), 5%, rgba(255, 255, 255, 0)),
+    url('../../../images/dough.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
