@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Paprika&display=swap');
 body {
     font-family: "Paprika", sans-serif;
+    height: 120vh;
 }
 
 li, a {
@@ -35,17 +36,18 @@ header {
 
 .nav_links li a {
     transition: all 0.3s ease 0s;
+    color: white;
 }
+
+.nav_links.movingLink li a {
+    color: black;
+}
+
 
 .nav_links li a:hover {
     color: orange;
 }
 
-.sticky-wrapper {
-    position: relative;
-    height: 4.5rem;
-    background-color: white;
-}
 
 .sticky .sticky-inner {
     position: fixed;
@@ -53,6 +55,15 @@ header {
     left: 0;
     right: 0;
     z-index: 1;
+}
+
+.moving {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
     background-color: white;
-    height: 3rem;
+    height: 4rem;
+    transition: 1s ease 0s;
 }
