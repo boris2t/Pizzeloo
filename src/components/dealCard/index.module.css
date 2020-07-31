@@ -1,0 +1,19 @@
+.card img {
+    width: 250px;
+    height: 160px;
+  }
+
+  .card {
+    position: relative;
+    width: 250px;
+    height: 450px;
+    border: none;
+    border-radius: 2%;
+    background-color: white;
+    text-align: center;
+    margin: 0 8px;
+  }
+
+  .card h1 {
+      color: #0073aa;
+  }

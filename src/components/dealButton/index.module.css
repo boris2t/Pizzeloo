@@ -1,0 +1,14 @@
+.btn {
+    position: absolute;
+    top: 86%;
+    left: 21%;
+    padding: 10px 25px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5%;
+  }
+
+  .btn:hover {
+      background-color: rgb(7, 167, 7);
+  }
