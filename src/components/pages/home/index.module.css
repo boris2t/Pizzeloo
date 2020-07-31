@@ -1,5 +1,6 @@
 .container {
     position: relative;
+    height: 100vh;
   }
   .img {
     position: absolute;
@@ -8,7 +9,7 @@
     opacity: 0;
     transition: 1s ease-in-out;
     width: 100%;
-    height: 40vw;
+    height: 50vw;
   }
 
   .img.active {
@@ -37,4 +38,11 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+  }
+
+  .lower-container {
+    position: absolute;
+    height: 70vh;
+    width: 100%;
+    background: url('../../../images/bg.jpg') no-repeat center;
   }

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import Layout from '../../layout'
 import styles from './index.module.css'
+import ImageButton from '../../imageButton'
 
 const Home = () => {
   const [activeImg, setActiveImg] = useState('firstImg')
@@ -23,14 +24,23 @@ const Home = () => {
   return (
     <Layout>
       <div className={styles.container}>
-        {images.map(image => {
+        {images.map((image, index) => {
           return (
-            <div key={image}
-              className={`${styles.img} ${styles[`${image}`]} ${(image === activeImg) ? styles.active : ''}`}>
-            </div>)
+            <Fragment key={index}>
+              <div
+                className={`${styles.img} ${styles[`${image}`]} ${(image === activeImg) ? styles.active : ''}`}>
+              </div>
+            </Fragment>
+          )
         })}
+        <ImageButton image='firstImg' active={activeImg} setActive={setActiveImg}/>
+        <ImageButton image='secondImg' active={activeImg} setActive={setActiveImg}/>
+        <ImageButton image='thirdImg' active={activeImg} setActive={setActiveImg}/>
       </div>
 
+      <div className={styles['lower-container']}>
+
+      </div>
     </Layout>
   );
 };
