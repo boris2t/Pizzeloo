@@ -1,3 +1,10 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form {
     position: relative;
     width: 100%;
@@ -34,30 +41,4 @@
     font-size: 1rem;
     pointer-events: none;
     transition: .3s ease-out;
-}
-
-.form .input-group input:focus+label, .form .input-group input[value='v']+label {
-    transform: translateY(-18px);
-    color: #ff652f;
-    font-size: .8rem;
-}
-
-.form .input-group p {
-    font-size: 16px;
-    color: red;
-    margin-top: -25px;
-}
-
-.submit-btn {
-    display: block;
-    margin-left: auto;
-    border: none;
-    outline: none;
-    background: #ff652f;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
 }

@@ -8,6 +8,9 @@ import Layout from '../../layout'
 import styles from './index.module.css'
 import setAttribute from '../../../functions/settAttribute'
 import { Messages } from '../../../constants/validationConstants'
+import SubmitButton from '../../common/buttons/submitButton'
+import AuthWrapper from '../../common/wrappers/authWrapper'
+import FormTitle from '../../common/forms/formTitle'
 
 const Login = ({ history }) => {
 
@@ -23,11 +26,11 @@ const Login = ({ history }) => {
         .signInWithEmailAndPassword(email, password)
       history.push("/")
     } catch (error) {
-        if (error.code === "auth/invalid-email") {
-          setIncorrect(error.message)
-        } else {
-          setIncorrect(Messages.inncorectData)
-        }
+      if (error.code === "auth/invalid-email") {
+        setIncorrect(error.message)
+      } else {
+        setIncorrect(Messages.inncorectData)
+      }
     }
   },
     [history]
@@ -41,9 +44,9 @@ const Login = ({ history }) => {
 
   return (
     <Layout>
-      <div className={styles["login-wrapper"]}>
+      <AuthWrapper>
         <form onSubmit={handleSubmit(handleLogin)} className={styles.form}>
-          <h2>Login</h2>
+          <FormTitle title='Login' />
           <div className={styles["input-group"]}>
             <input
               type="text"
@@ -69,9 +72,9 @@ const Login = ({ history }) => {
             Don't have an account yet?
              <Link to="signup" className={styles.signUpLink}>Sign Up!</Link>
           </p>
-          <input type="submit" value="Login" className={styles["submit-btn"]} />
+          <SubmitButton value='Login' />
         </form>
-      </div>
+      </AuthWrapper>
     </Layout>
   )
 }

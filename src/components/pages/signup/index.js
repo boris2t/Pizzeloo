@@ -6,6 +6,9 @@ import Layout from '../../layout'
 import styles from './index.module.css'
 import { Values, Messages } from '../../../constants/validationConstants'
 import setAttribute from '../../../functions/settAttribute'
+import SubmitButton from '../../common/buttons/submitButton'
+import AuthWrapper from '../../common/wrappers/authWrapper'
+import FormTitle from '../../common/forms/formTitle'
 
 const SignUp = ({ history }) => {
 
@@ -26,9 +29,9 @@ const SignUp = ({ history }) => {
 
   return (
     <Layout>
-      <div className={styles["signup-wrapper"]}>
+      <AuthWrapper>
         <form onSubmit={handleSubmit(handleSignUp)} className={styles.form}>
-          <h2>Sign Up</h2>
+          <FormTitle title='Sign Up'/>
           <div className={styles["input-group"]}>
             <input
               type="text"
@@ -68,9 +71,9 @@ const SignUp = ({ history }) => {
               <p>{Messages.passwordMatchErr}</p>
             )}
           </div>
-          <input type="submit" value="Sign Up" className={styles["submit-btn"]} />
+          <SubmitButton value='Sign Up' />
         </form>
-      </div>
+      </AuthWrapper>
     </Layout>
   )
 }
