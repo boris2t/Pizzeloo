@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import fire from '../../../fire'
-import Layout from '../../layout'
+import Layout from '../../common/layout'
 import styles from './index.module.css'
 import SubmitButton from '../../common/buttons/submitButton'
 

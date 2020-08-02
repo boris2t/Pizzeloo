@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
-import Header from '../header'
-import Footer from '../footer'
+import Header from '../../header'
+import Footer from '../../footer'
 
 class Layout extends Component {
     render() {

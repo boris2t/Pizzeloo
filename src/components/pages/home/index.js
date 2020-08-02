@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import Layout from '../../layout'
+import Layout from '../../common/layout'
 import styles from './index.module.css'
 import ImageButton from '../../common/buttons/imageButton'
 import DealCard from '../../dealCard'

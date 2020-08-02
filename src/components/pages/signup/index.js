@@ -2,7 +2,7 @@ import React, { useCallback } from 'react'
 import { withRouter } from 'react-router'
 import { useForm } from 'react-hook-form'
 import fire from "../../../fire"
-import Layout from '../../layout'
+import Layout from '../../common/layout'
 import styles from './index.module.css'
 import { Values, Messages } from '../../../constants/validationConstants'
 import setAttribute from '../../../functions/settAttribute'
