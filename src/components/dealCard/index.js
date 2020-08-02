@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.css'
-import DealButton from '../dealButton'
+import DealButton from '../common/buttons/dealButton'
 
 const DealCard = (props) => {
     return (

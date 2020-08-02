@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import fire from "../fire";
+import Spinner from "../components/common/spinner";
 
 export const AuthContext = React.createContext();
 
@@ -15,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if(pending){
-    return <>Loading...</>
+    return <Spinner />
   }
 
   return (

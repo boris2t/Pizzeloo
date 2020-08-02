@@ -4,11 +4,12 @@ import { AuthContext } from '../../contexts/Auth';
 
 const AnonymousRoute = ({ component: RouteComponent, ...rest }) => {
   const {currentUser} = useContext(AuthContext);
+
   return (
     <Route
       {...rest}
       render={routeProps =>
-        !!currentUser ? (
+        currentUser ? (
             <Redirect to={'/'} />
         ) : (
           <RouteComponent {...routeProps} />
