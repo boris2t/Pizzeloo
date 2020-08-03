@@ -11,6 +11,7 @@ import { Messages } from '../../../constants/validationConstants'
 import SubmitButton from '../../common/buttons/submitButton'
 import AuthWrapper from '../../common/wrappers/authWrapper'
 import FormTitle from '../../common/forms/formTitle'
+import Form from '../../common/forms/form'
 
 const Login = ({ history }) => {
 
@@ -45,7 +46,7 @@ const Login = ({ history }) => {
   return (
     <Layout>
       <AuthWrapper>
-        <form onSubmit={handleSubmit(handleLogin)} className={styles.form}>
+        <Form onSubmit={handleSubmit(handleLogin)}>
           <FormTitle title='Login' />
           <div className={styles["input-group"]}>
             <input
@@ -68,14 +69,14 @@ const Login = ({ history }) => {
             <label htmlFor="password">Password</label>
             {errors.password && (<p>{Messages.requirePassword}</p>)}
           </div>
-          
+
           <h3 id="incorrect">{incorrect}</h3>
           <p className={styles.signUpParagraph}>
             Don't have an account yet?
              <Link to="signup" className={styles.signUpLink}>Sign Up!</Link>
           </p>
           <SubmitButton value='Login' />
-        </form>
+        </Form>
       </AuthWrapper>
     </Layout>
   )

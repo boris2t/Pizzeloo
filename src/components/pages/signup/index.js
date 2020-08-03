@@ -9,6 +9,7 @@ import setAttribute from '../../../functions/settAttribute'
 import SubmitButton from '../../common/buttons/submitButton'
 import AuthWrapper from '../../common/wrappers/authWrapper'
 import FormTitle from '../../common/forms/formTitle'
+import Form from '../../common/forms/form'
 
 const SignUp = ({ history }) => {
 
@@ -30,8 +31,8 @@ const SignUp = ({ history }) => {
   return (
     <Layout>
       <AuthWrapper>
-        <form onSubmit={handleSubmit(handleSignUp)} className={styles.form}>
-          <FormTitle title='Sign Up'/>
+        <Form onSubmit={handleSubmit(handleSignUp)}>
+          <FormTitle title='Sign Up' />
           <div className={styles["input-group"]}>
             <input
               type="text"
@@ -72,7 +73,7 @@ const SignUp = ({ history }) => {
             )}
           </div>
           <SubmitButton value='Sign Up' />
-        </form>
+        </Form>
       </AuthWrapper>
     </Layout>
   )

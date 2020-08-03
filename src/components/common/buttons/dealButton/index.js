@@ -3,7 +3,7 @@ import styles from './index.module.css'
 
 const DealButton = (props) => {
     return (
-        <button className={styles.btn}>{props.title}</button>
+        <button onClick={props.handleOnClick} className={styles.btn}>{props.title}</button>
     )
 }
 

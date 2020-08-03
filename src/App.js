@@ -8,7 +8,7 @@ import { AuthProvider } from './contexts/Auth'
 import AnonymousRoute from './components/routes/AnonymousRoute'
 import AdminRoute from './components/routes/AdminRoute'
 import Logout from './components/logout'
-import CreateOffer from './components/pages/createOffer'
+import Admin from './components/pages/admin'
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
           <AnonymousRoute exact path='/login' component={Login} />
           <AnonymousRoute exact path='/signup' component={SignUp} />
           <Route exact path='/logout' component={Logout} />
-          <AdminRoute path='/createOffer' component={CreateOffer}/>
+          <AdminRoute path='/admin' component={Admin}/>
         </Switch>
       </Router>
     </AuthProvider>

@@ -14,7 +14,7 @@ const getLinks = (currentUser) => {
   if (currentUser && currentUser.isAdmin) {
     authLinks.push({
       title: "Admin",
-      link: "createOffer"
+      link: "/admin"
     })
   }
 

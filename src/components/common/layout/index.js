@@ -6,7 +6,7 @@ class Layout extends Component {
     render() {
         return (
             <Fragment>
-                <Header />
+                <Header sticky={this.props.sticky} />
                 <div>{this.props.children}</div>
                 <Footer />
             </Fragment>

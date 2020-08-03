@@ -6,11 +6,11 @@ import getLinks from '../../functions/getLinks'
 import blackLogo from '../../images/logo-black.png'
 import whiteLogo from '../../images/logo-white.png'
 
-const Header = () => {
+const Header = ({sticky}) => {
 
     const { currentUser } = useContext(AuthContext)
     const links = getLinks(currentUser)
-    const [isSticky, setSticky] = useState(false);
+    const [isSticky, setSticky] = useState(sticky);
 
     const handleScroll = () => {
 
