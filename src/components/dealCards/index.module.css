@@ -12,6 +12,7 @@
     background-color: white;
     text-align: center;
     margin: 0 8px;
+    transition: 1s ease-in-out;
   }
 
   .card h1 {
