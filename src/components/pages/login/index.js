@@ -57,6 +57,7 @@ const Login = ({ history }) => {
             <label htmlFor="email">Email</label>
             {errors.email && (<p>{Messages.requireEmail}</p>)}
           </div>
+
           <div className={styles["input-group"]}>
             <input
               type="password"
@@ -67,6 +68,7 @@ const Login = ({ history }) => {
             <label htmlFor="password">Password</label>
             {errors.password && (<p>{Messages.requirePassword}</p>)}
           </div>
+          
           <h3 id="incorrect">{incorrect}</h3>
           <p className={styles.signUpParagraph}>
             Don't have an account yet?

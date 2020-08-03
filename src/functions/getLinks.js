@@ -1,28 +1,35 @@
 const getLinks = (currentUser) => {
 
-    const authLinks = [
-      {
-        title: "Menu",
-        link: "/menu"
-      },
-      {
-        title: "Logout",
-        link: "/logout"
-      },
-    ]
-  
-    const guestLinks = [
-      {
-        title: "Menu",
-        link: "/menu"
-      },
-      {
-        title: "Login",
-        link: "/login"
-      },
-    ]
-  
-    return currentUser ? authLinks : guestLinks
+  const authLinks = [
+    {
+      title: "Menu",
+      link: "/menu"
+    },
+    {
+      title: "Logout",
+      link: "/logout"
+    },
+  ]
+
+  if (currentUser && currentUser.isAdmin) {
+    authLinks.push({
+      title: "Admin",
+      link: "createOffer"
+    })
   }
-  
-  export default getLinks
+
+  const guestLinks = [
+    {
+      title: "Menu",
+      link: "/menu"
+    },
+    {
+      title: "Login",
+      link: "/login"
+    },
+  ]
+
+  return currentUser ? authLinks : guestLinks
+}
+
+export default getLinks

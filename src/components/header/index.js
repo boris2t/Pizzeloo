@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styles from './index.module.css'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/Auth'
@@ -11,7 +11,6 @@ const Header = () => {
     const { currentUser } = useContext(AuthContext)
     const links = getLinks(currentUser)
     const [isSticky, setSticky] = useState(false);
-    const ref = useRef(null)
 
     const handleScroll = () => {
 
@@ -39,7 +38,7 @@ const Header = () => {
     const logo = isSticky ? blackLogo : whiteLogo
     
     return (
-        <div className={`${styles.sticky} ${styles[stickyClass]}`} ref={ref}>
+        <div className={`${styles.sticky} ${styles[stickyClass]}`}>
             <header className={styles['sticky-inner']}>
                 <Link className={styles.logoLink} to="/"><img className={styles.logo} src={logo} alt="Main logo." /></Link>
                 <nav>
@@ -59,6 +58,5 @@ const Header = () => {
         </div>
     )
 }
-
 
 export default Header

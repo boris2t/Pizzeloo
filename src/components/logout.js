@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import fire from '../fire'
+import Spinner from './common/spinner'
 
 class Logout extends Component {
     componentDidMount() {
@@ -9,7 +10,7 @@ class Logout extends Component {
 
     render() {
         return (
-            <p>Loading...</p>
+            <Spinner />
         )
     }
 }
