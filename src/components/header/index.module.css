@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Paprika&display=swap');
+
+html {
+    height: 100%;
+}
+
 body {
     font-family: "Paprika", sans-serif;
     background-image:
@@ -7,7 +12,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
 }
 
 li, a {

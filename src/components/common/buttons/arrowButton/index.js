@@ -1,9 +1,10 @@
 import React from 'react'
 import styles from './index.module.css'
 
-const ArrowButton = ({handleOnClick}) => {
+const ArrowButton = (props) => {
+
     return (
-        <button className={styles.arrow} onClick={handleOnClick}></button>
+        <button className={`${styles.arrow} ${styles[props.direction]}`} onClick={props.handleOnClick}></button>
     )
 }
 

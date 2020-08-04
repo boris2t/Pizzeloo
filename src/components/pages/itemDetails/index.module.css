@@ -1,0 +1,108 @@
+.details-container {
+    display: inline-block;
+    text-align: center;
+    margin-top: -400px;
+    border-radius: 20px;
+    width: 80%;
+    background-color: white;
+}
+
+.details-container img {
+    width: 90%;
+    height: 30%;
+}
+
+.details-container h1 {
+    color: #0073aa;
+    font-size: 30px;
+}
+
+.divider {
+    width: 85%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.left {
+    margin-right: 60%;
+}
+
+.left h2, .right h2 {
+    margin-right: 40%;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.left p {
+    margin-right: 10%;
+    color: green;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.size-label {
+    margin-right: 50%;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.left select {
+    margin: 15px 110px 50px 0;
+    width: 180px;
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid #CCC;
+    height: 34px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(https://www.clipartmax.com/png/middle/293-2938109_ups-and-downs-arrow-up-and-down.png) 96% / 15% no-repeat;
+  }
+
+.right {
+    margin-top: -220px;
+    margin-left: 60%;
+}
+
+.right p {
+    margin-right: 40%;
+    color: green;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.price {
+    margin-left: 35%;
+    margin-top: -15.5%;
+}
+
+.proceed {
+    margin: 3% 0 2% 0;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 53%;
+    margin-top: -3%;
+    font-size: 20px;
+}
+
+.quantity button {
+    width: 15px;
+    height: 15px;
+}
+
+/* .minus-btn {
+    margin-left: 30%;
+}
+
+.plus-btn {
+    margin-left: -38%;
+} */
+
+.quantity p {
+    margin-left: 10px;
+}
+

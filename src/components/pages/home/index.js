@@ -77,7 +77,7 @@ const Home = () => {
 
       <div className={styles['lower-container']}>
         <DealCards offers={currentOffers} loading={loading}/>
-        <ArrowButton handleOnClick={handleNextOffers}/>
+        <ArrowButton direction='right' handleOnClick={handleNextOffers} />
       </div>
     </Layout>
   );

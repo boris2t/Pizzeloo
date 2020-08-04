@@ -1,0 +1,50 @@
+.card img {
+    width: 200px;
+    height: 130px;
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 330px;
+    border: none;
+    border-radius: 2%;
+    background-color: white;
+    text-align: center;
+    margin: 0 8px;
+}
+
+.card h1 {
+    color: #0073aa;
+    font-size: 18px;
+}
+
+.card .divider {
+    width: 85%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+    font-size: 12px;
+    font-weight: 700;
+    color: grey
+}
+
+.card:hover {
+    width: 202px;
+    height: 335px;
+}
+
+.card:hover p {
+    font-size: 12.5px;
+}
+
+.card:hover h1 {
+    font-size: 18.5px;
+}
+
+.card:hover img {
+    width: 202px;
+    height: 135px;
+}
