@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './components/pages/home'
 import Login from './components/pages/login'
 import SignUp from './components/pages/signup'
@@ -10,6 +10,8 @@ import AdminRoute from './components/routes/AdminRoute'
 import Logout from './components/logout'
 import Admin from './components/pages/admin'
 import Menu from './components/pages/menu'
+import ItemDetails from './components/pages/itemDetails'
+import Checkout from './components/pages/checkout'
 
 const App = () => {
   return (
@@ -21,7 +23,9 @@ const App = () => {
           <AnonymousRoute exact path='/signup' component={SignUp} />
           <Route exact path='/logout' component={Logout} />
           <AdminRoute path='/admin' component={Admin} />
-          <PrivateRoute exact path='/menu' component={Menu} />
+          <Route exact path='/menu' component={Menu} />
+          <Route path='/pizzas/:name' component={ItemDetails}/>
+          <PrivateRoute path='/checkout' component={Checkout}/>
         </Switch>
       </Router>
     </AuthProvider>

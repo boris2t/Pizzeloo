@@ -1,8 +1,29 @@
 .container {
-    position: absolute;
+    /* background: url('../../../images/bg.jpg') no-repeat center;
+    background-size: cover; */
+    /* position: absolute;
     top: 15%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    height: 170vh; */
+    box-sizing: border-box;
+    margin-top: 100px;
+    margin-left: 175px;
+
 }
+
+.row {
+    margin: 0 -5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* .container>* {
+    flex: 0 0 20%;
+    margin: -20px;
+} */

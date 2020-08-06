@@ -1,3 +1,12 @@
+.container {
+    position: absolute;
+    top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .details-container {
     display: inline-block;
     text-align: center;
@@ -23,6 +32,14 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.verticalDivider {
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    border-left: 3px solid rgba(0, 0, 0, 0.2);
+    height: 200px;
+}
+
 .left {
     margin-right: 60%;
 }
@@ -34,7 +51,8 @@
 }
 
 .left p {
-    margin-right: 10%;
+    margin-left: 102px;
+    text-align: start;
     color: green;
     font-size: 14px;
     font-weight: 600;
@@ -42,6 +60,7 @@
 
 .size-label {
     margin-right: 50%;
+    margin-top: 20px;
     font-size: 18px;
     font-weight: 600;
 }
@@ -57,7 +76,7 @@
     -moz-appearance: none;
     appearance: none;
     background: url(https://www.clipartmax.com/png/middle/293-2938109_ups-and-downs-arrow-up-and-down.png) 96% / 15% no-repeat;
-  }
+}
 
 .right {
     margin-top: -220px;
@@ -77,32 +96,42 @@
 }
 
 .proceed {
-    margin: 3% 0 2% 0;
+    margin: 3% 80px 2% 0;
+    padding: 10px 50px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.proceed:hover {
+    background-color: rgb(7, 167, 7);
 }
 
 .quantity {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 53%;
+    margin-right: 62%;
     margin-top: -3%;
     font-size: 20px;
 }
 
 .quantity button {
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
 }
 
-/* .minus-btn {
-    margin-left: 30%;
+.quantity button:first-child {
+    margin-left: 56%;
 }
 
-.plus-btn {
-    margin-left: -38%;
-} */
+.quantity button:last-child {
+    margin-left: -35%;
+}
 
 .quantity p {
     margin-left: 10px;
 }
-

@@ -26,10 +26,12 @@ const Header = ({sticky}) => {
     };
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
+        if (!sticky) {
+            window.addEventListener('scroll', handleScroll)
 
-        return () => {
-            window.removeEventListener('scroll', () => handleScroll)
+            return () => {
+                window.removeEventListener('scroll', () => handleScroll)
+            }
         }
     }, [])
 

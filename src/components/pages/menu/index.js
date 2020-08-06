@@ -26,7 +26,9 @@ const Menu = () => {
     return (
         <Layout sticky={true}>
             <div className={styles.container}>
-                <MenuCards items={pizzas} loading={loading} />
+                <div className={styles.row}>
+                    <MenuCards items={pizzas} loading={loading} />
+                </div>
             </div>
         </Layout>
     )

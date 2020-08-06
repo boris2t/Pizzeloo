@@ -1,3 +1,10 @@
+.column {
+    float: left;
+    width: 18%;
+    margin: -5px;
+
+  }
+
 .card img {
     width: 200px;
     height: 130px;
@@ -5,13 +12,13 @@
 
 .card {
     position: relative;
-    width: 200px;
-    height: 330px;
+    width: 220px;
+    height: 350px;
     border: none;
     border-radius: 2%;
     background-color: white;
     text-align: center;
-    margin: 0 8px;
+    margin: 0 8px 30px 8px;
 }
 
 .card h1 {
@@ -32,19 +39,13 @@
 }
 
 .card:hover {
-    width: 202px;
-    height: 335px;
+    background-color: rgb(255, 250, 219);
 }
 
-.card:hover p {
-    font-size: 12.5px;
+.card button {
+    margin-left: 10px;
 }
 
-.card:hover h1 {
-    font-size: 18.5px;
-}
-
-.card:hover img {
-    width: 202px;
-    height: 135px;
+.card button:hover {
+    cursor: pointer;
 }
