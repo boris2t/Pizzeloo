@@ -2,6 +2,11 @@ const getLinks = (currentUser) => {
 
   const authLinks = [
     {
+      title: "",
+      basket: true,
+      link: "/basket"
+    },
+    {
       title: "Menu",
       link: "/menu"
     },
@@ -12,7 +17,7 @@ const getLinks = (currentUser) => {
   ]
 
   if (currentUser && currentUser.isAdmin) {
-    authLinks.push({
+    authLinks.unshift({
       title: "Admin",
       link: "/admin"
     })

@@ -12,6 +12,7 @@ import Admin from './components/pages/admin'
 import Menu from './components/pages/menu'
 import ItemDetails from './components/pages/itemDetails'
 import Checkout from './components/pages/checkout'
+import Basket from './components/pages/basket'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <AdminRoute path='/admin' component={Admin} />
           <Route exact path='/menu' component={Menu} />
           <Route path='/pizzas/:name' component={ItemDetails}/>
+          <Route path='/basket' component={Basket} />
           <PrivateRoute path='/checkout' component={Checkout}/>
         </Switch>
       </Router>

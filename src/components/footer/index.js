@@ -5,6 +5,7 @@ const Footer = () => {
 
     return (
         <footer>
+            <hr />
             <p className={styles.text}>Pizzelo 2020 &copy; All rights reserved.</p>
         </footer>
     )

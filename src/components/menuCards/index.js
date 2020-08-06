@@ -13,7 +13,6 @@ const MenuCards = ({ items, loading }) => {
                 <div key={item.id} className={styles.column}>
                     <Link to={`/pizzas/${item.name}`}>
                         <div className={styles.card}>
-
                             <img src={item.image} alt='meal'></img>
                             <h1>{item.name.toUpperCase()}</h1>
                             <hr className={styles.divider} />

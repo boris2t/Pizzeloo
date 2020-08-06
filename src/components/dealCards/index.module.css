@@ -12,9 +12,16 @@
     background-color: white;
     text-align: center;
     margin: 0 8px;
-    transition: 1s ease-in-out;
   }
 
   .card h1 {
       color: #0073aa;
+  }
+
+  .card:hover {
+    background-color: rgb(255, 250, 219);
+  }
+
+  .card button:hover {
+    cursor: pointer;
   }

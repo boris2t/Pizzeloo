@@ -5,8 +5,9 @@ import { AuthContext } from '../../contexts/Auth'
 import getLinks from '../../functions/getLinks'
 import blackLogo from '../../images/logo-black.png'
 import whiteLogo from '../../images/logo-white.png'
+import basket from '../../images/basket.png'
 
-const Header = ({sticky}) => {
+const Header = ({ sticky }) => {
 
     const { currentUser } = useContext(AuthContext)
     const links = getLinks(currentUser)
@@ -18,7 +19,7 @@ const Header = ({sticky}) => {
             if (!isSticky) {
                 setSticky(true)
             }
-        } 
+        }
 
         if (window.pageYOffset === 0) {
             setSticky(false)
@@ -38,7 +39,7 @@ const Header = ({sticky}) => {
     const stickyClass = isSticky ? 'moving' : ''
     const stickyLinkClass = stickyClass ? 'movingLink' : ''
     const logo = isSticky ? blackLogo : whiteLogo
-    
+
     return (
         <div className={`${styles.sticky} ${styles[stickyClass]}`}>
             <header className={styles['sticky-inner']}>
@@ -49,7 +50,9 @@ const Header = ({sticky}) => {
                             links.map(el => {
                                 return (
                                     <li key={el.title}>
-                                        <Link to={el.link}>{el.title}</Link>
+                                        <Link to={el.link}>
+                                            {el.basket ? <img className={styles.basket} src={basket}></img> : el.title}
+                                        </Link>
                                     </li>
                                 )
                             })

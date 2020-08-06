@@ -6,13 +6,13 @@ import Layout from '../../common/layout'
 import { useParams } from 'react-router'
 import Spinner from '../../common/spinner'
 import { Link } from 'react-router-dom'
-import Checkout from '../checkout'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')
     const [count, setCount] = useState(1)
     const [item, setItem] = useState({ name: '' })
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
+    //const [basketItems, setBasketItems] = useState([])
     const params = useParams()
 
     useEffect(() => {
@@ -51,11 +51,26 @@ const ItemDetails = () => {
         }
     }
 
-    const checkoutTo = {
-        pathname: '/checkout',
-        itemName: item.name,
-        size: size,
-        count: count
+    // const checkoutTo = {
+    //     pathname: '/checkout',
+    //     itemName: item.name,
+    //     size: size,
+    //     count: count
+    // }
+
+    const handleAddToBasket = () => {
+        const basketValue = sessionStorage.getItem('items')
+        const basketArray = basketValue == null ? [] : Array.from(JSON.parse(basketValue))
+        const basketItem = {
+            name: item.name,
+            size: size,
+            amount: count,
+            price: price,
+            image: item.image
+        }
+
+        basketArray.push(basketItem)
+        sessionStorage.setItem('items', JSON.stringify(basketArray))
     }
 
     return loading ? (<Spinner />) : (
@@ -89,9 +104,9 @@ const ItemDetails = () => {
                             <p>{count}</p>
                             <ArrowButton direction='up' handleOnClick={() => setCount(count + 1)} />
                         </div>
-                        <Link to={checkoutTo}>
-                            <button className={styles.proceed}>PROCEED</button>
-                        </Link>
+                        {/* <Link to={checkoutTo}> */}
+                            <button onClick={handleAddToBasket} className={styles.proceed}>ADD</button>
+                        {/* </Link> */}
                     </div>
                 </div>
             </div>

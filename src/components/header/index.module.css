@@ -25,6 +25,10 @@ header {
     align-items: center;
     padding: 10px 10%;
 }
+.basket {
+    width: 25px;
+    height: 25px;
+}
 
 .logoLink {
     margin-right: auto;
