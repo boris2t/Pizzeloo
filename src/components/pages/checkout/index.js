@@ -34,7 +34,8 @@ const Checkout = () => {
             name: name,
             phone: phone,
             adress: adress,
-            orderedItems: simplifiedOrder
+            orderedItems: simplifiedOrder,
+            status: 'pending'
         })
 
         sessionStorage.removeItem('items')
