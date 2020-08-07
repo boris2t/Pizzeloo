@@ -5,14 +5,12 @@ import ArrowButton from '../../common/buttons/arrowButton'
 import Layout from '../../common/layout'
 import { useParams } from 'react-router'
 import Spinner from '../../common/spinner'
-import { Link } from 'react-router-dom'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')
     const [count, setCount] = useState(1)
     const [item, setItem] = useState({ name: '' })
     const [loading, setLoading] = useState(false)
-    //const [basketItems, setBasketItems] = useState([])
     const params = useParams()
 
     useEffect(() => {
@@ -28,20 +26,25 @@ const ItemDetails = () => {
         getItem()
     }, [])
 
+    const originalPrice = Number(item.price)
     let price = 0
+    let priceForOne = 0
     let weight = ''
 
     switch (size) {
         case 'small':
-            price = Number(item.price) * count
+            price = originalPrice * count
+            priceForOne = price
             weight = 350
             break
         case 'medium':
-            price = Number(item.price) * 1.5 * count
+            price = originalPrice * 1.5 * count
+            priceForOne = originalPrice * 1.5
             weight = 550
             break
         case 'large':
-            price = Number(item.price) * 2 * count
+            price = originalPrice * 2 * count
+            priceForOne = originalPrice * 2
             weight = 800
     }
 
@@ -51,21 +54,14 @@ const ItemDetails = () => {
         }
     }
 
-    // const checkoutTo = {
-    //     pathname: '/checkout',
-    //     itemName: item.name,
-    //     size: size,
-    //     count: count
-    // }
-
     const handleAddToBasket = () => {
         const basketValue = sessionStorage.getItem('items')
         const basketArray = basketValue == null ? [] : Array.from(JSON.parse(basketValue))
         const basketItem = {
             name: item.name,
-            size: size,
             amount: count,
             price: price,
+            priceForOne: priceForOne,
             image: item.image
         }
 
@@ -104,9 +100,7 @@ const ItemDetails = () => {
                             <p>{count}</p>
                             <ArrowButton direction='up' handleOnClick={() => setCount(count + 1)} />
                         </div>
-                        {/* <Link to={checkoutTo}> */}
-                            <button onClick={handleAddToBasket} className={styles.proceed}>ADD</button>
-                        {/* </Link> */}
+                        <button onClick={handleAddToBasket} className={styles.proceed}>ADD</button>
                     </div>
                 </div>
             </div>

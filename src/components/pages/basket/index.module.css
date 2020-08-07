@@ -1,15 +1,17 @@
 .container {
     margin-top: 200px;
     width: 100%;
-    height: 100%;
+    height: 90vh;
 }
 
 .empty {
     color: grey;
+    text-align: center;
 }
 
 .menuLink {
     color: green;
+    text-align: center;
 }
 
 .product-image {
@@ -29,12 +31,19 @@
   
   .product-quantity {
     float: left;
+    margin-left: 70px;
     width: 10%;
   }
   
   .product-removal {
     float: left;
     width: 9%;
+  }
+
+  .product-line-price-label {
+    float: left;
+    margin-left: 60px;
+    width: 12%;
   }
   
   .product-line-price {
@@ -43,7 +52,6 @@
     text-align: right;
   }
   
-  /* This is used as the traditional .clearfix class */
   .group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
   .group:after,
   .shopping-cart:after,
@@ -62,33 +70,31 @@
     zoom: 1;
   }
   
-  /* Apply clearfix in a few places */
-  /* Apply dollar signs */
   .product .product-price:before, .product .product-line-price:before, .totals-value:before {
     content: "$";
   }
-  
-  /* Body/Header stuff */
 
   .shopping-cart {
     margin-top: -45px;
   }
   
-  /* Column headers */
   .column-labels label {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid green;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
   .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
     text-indent: -9999px;
   }
   
-  /* Product entries */
   .product {
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
     padding-bottom: 10px;
     border-bottom: 1px solid green;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
   }
   .product .product-image {
     text-align: center;
@@ -117,8 +123,11 @@
   .product .remove-product:hover {
     background-color: #a44;
   }
+
+  .totals {
+    margin-right: 150px;
+  }
   
-  /* Totals section */
   .totals .totals-item {
     float: right;
     clear: both;
@@ -130,6 +139,7 @@
     clear: both;
     width: 79%;
     text-align: right;
+
   }
   .totals .totals-item .totals-value {
     float: right;
@@ -140,6 +150,7 @@
     float: right;
     border: 0;
     margin-top: 20px;
+    margin-right: 150px;
     padding: 6px 25px;
     background-color: #6b6;
     color: #fff;
