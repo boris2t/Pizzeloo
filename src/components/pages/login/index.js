@@ -1,17 +1,18 @@
 import React, { useCallback, useContext, useState } from 'react'
 import { withRouter, Redirect } from 'react-router'
-import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import fire from '../../../fire'
 import { AuthContext } from '../../../contexts/Auth'
 import Layout from '../../common/layout'
-import styles from './index.module.css'
 import setAttribute from '../../../functions/settAttribute'
 import { Messages } from '../../../constants/validationConstants'
 import SubmitButton from '../../common/buttons/submitButton'
 import AuthWrapper from '../../common/wrappers/authWrapper'
 import FormTitle from '../../common/forms/formTitle'
 import Form from '../../common/forms/form'
+import ValidationFormInput from '../../common/forms/validationFormInput'
+import IncorrectInput from '../../common/forms/incorrectInput'
+import DontHaveAccount from '../../common/forms/dontHaveAccount'
 
 const Login = ({ history }) => {
 
@@ -48,33 +49,31 @@ const Login = ({ history }) => {
       <AuthWrapper>
         <Form onSubmit={handleSubmit(handleLogin)}>
           <FormTitle title='Login' />
-          <div className={styles["input-group"]}>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              onInput={setAttribute}
-              ref={register({ required: true })} />
-            <label htmlFor="email">Email</label>
-            {errors.email && (<p>{Messages.requireEmail}</p>)}
-          </div>
 
-          <div className={styles["input-group"]}>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onInput={setAttribute}
-              ref={register({ required: true })} />
-            <label htmlFor="password">Password</label>
-            {errors.password && (<p>{Messages.requirePassword}</p>)}
-          </div>
+          <ValidationFormInput
+            label='Email'
+            type='text'
+            id='email'
+            name='email'
+            onInput={setAttribute}
+            register={register({ required: true })}
+            errors={errors}
+            message={Messages.requireEmail}
+          />
 
-          <h3 id="incorrect">{incorrect}</h3>
-          <p className={styles.signUpParagraph}>
-            Don't have an account yet?
-             <Link to="signup" className={styles.signUpLink}>Sign Up!</Link>
-          </p>
+          <ValidationFormInput
+            label='Password'
+            type='password'
+            id='password'
+            name='password'
+            onInput={setAttribute}
+            register={register({ required: true })}
+            errors={errors}
+            message={Messages.requirePassword}
+          />
+
+          <IncorrectInput message={incorrect}/>
+          <DontHaveAccount />
           <SubmitButton value='Login' />
         </Form>
       </AuthWrapper>

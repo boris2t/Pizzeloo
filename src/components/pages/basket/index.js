@@ -73,7 +73,6 @@ const Basket = () => {
     const delivery = 5.00
     const grandTotal = (Number(subTotal) + delivery).toFixed(2)
 
-    console.log(itemsState)
     return (
         <Layout sticky={true}>
             <div className={styles.container}>

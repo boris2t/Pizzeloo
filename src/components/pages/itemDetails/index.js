@@ -3,7 +3,7 @@ import styles from './index.module.css'
 import fire from '../../../fire'
 import ArrowButton from '../../common/buttons/arrowButton'
 import Layout from '../../common/layout'
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 import Spinner from '../../common/spinner'
 
 const ItemDetails = () => {
@@ -12,6 +12,7 @@ const ItemDetails = () => {
     const [item, setItem] = useState({ name: '' })
     const [loading, setLoading] = useState(false)
     const params = useParams()
+    const history = useHistory()
 
     useEffect(() => {
         const getItem = async () => {
@@ -60,6 +61,7 @@ const ItemDetails = () => {
         const basketItem = {
             name: item.name,
             amount: count,
+            size: size,
             price: price,
             priceForOne: priceForOne,
             image: item.image
@@ -67,6 +69,7 @@ const ItemDetails = () => {
 
         basketArray.push(basketItem)
         sessionStorage.setItem('items', JSON.stringify(basketArray))
+        history.push('/menu')
     }
 
     return loading ? (<Spinner />) : (

@@ -25,6 +25,11 @@ const getLinks = (currentUser) => {
 
   const guestLinks = [
     {
+      title: "",
+      basket: true,
+      link: "/basket"
+    },
+    {
       title: "Menu",
       link: "/menu"
     },
