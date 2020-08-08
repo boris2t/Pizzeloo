@@ -8,7 +8,7 @@ import Orders from '../../admin/orders'
 
 const Admin = () => {
 
-    const [component, setComponent] = useState()
+    const [component, setComponent] = useState(<Orders />)
 
     const handleCreateOffer = () => {
         setComponent(<CreateOffer />)

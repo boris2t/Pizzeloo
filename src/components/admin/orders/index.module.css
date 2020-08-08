@@ -1,11 +1,63 @@
 .container {
     position: relative;
-    width: 100%;
-    max-width: 380px;
+    display: table;
+    width: 79%;
+    float: right;
     padding: 80px 40px 40px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
     color: #fff;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    margin: 100px auto 0 auto;
+    margin: 100px 20px 100px auto;
+}
+
+tbody {
+    display: block;
+    border-collapse: separate;
+}
+
+.person-label {
+    float: left;
+    margin: 0 40px;
+}
+
+.item-label {
+    float: right;
+    text-align: right;
+    margin: 0 37px;
+}
+
+.order {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.items {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.person-info {
+    margin: 10px 30px 0 35px;
+}
+
+.person-adress {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+}
+
+.items-info {
+    margin: 10px 40px;
+}
+
+.full-order {
+    border: 1px solid white;
+    margin: 5px 0;
+}
+
+.full-order button {
+    position: relative;
+    margin-bottom: 15px;
 }
