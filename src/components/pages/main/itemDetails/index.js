@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.css'
-import fire from '../../../fire'
-import ArrowButton from '../../common/buttons/arrowButton'
-import Layout from '../../common/layout'
+import fire from '../../../../fire'
+import ArrowButton from '../../../common/buttons/arrowButton'
+import Layout from '../../../common/layout'
 import { useParams, useHistory } from 'react-router'
-import Spinner from '../../common/spinner'
+import Spinner from '../../../common/spinner'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')

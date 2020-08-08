@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.css'
-import Layout from '../../common/layout'
-import fire from '../../../fire'
-import MenuCards from '../../menuCards'
+import Layout from '../../../common/layout'
+import fire from '../../../../fire'
+import MenuCards from '../../../menuCards'
 
 const Menu = () => {
 

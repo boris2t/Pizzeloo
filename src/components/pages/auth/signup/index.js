@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from 'react'
 import { withRouter } from 'react-router'
 import { useForm } from 'react-hook-form'
-import fire from "../../../fire"
-import Layout from '../../common/layout'
-import { Values, Messages } from '../../../constants/validationConstants'
-import setAttribute from '../../../functions/settAttribute'
-import SubmitButton from '../../common/buttons/submitButton'
-import AuthWrapper from '../../common/wrappers/authWrapper'
-import FormTitle from '../../common/forms/formTitle'
-import Form from '../../common/forms/form'
-import ValidationFormInput from '../../common/forms/validationFormInput'
-import IncorrectInput from '../../common/forms/incorrectInput'
+import fire from "../../../../fire"
+import Layout from '../../../common/layout'
+import { Values, Messages } from '../../../../constants/validationConstants'
+import setAttribute from '../../../../functions/settAttribute'
+import SubmitButton from '../../../common/buttons/submitButton'
+import AuthWrapper from '../../../common/wrappers/authWrapper'
+import FormTitle from '../../../common/forms/formTitle'
+import Form from '../../../common/forms/form'
+import ValidationFormInput from '../../../common/forms/validationFormInput'
+import IncorrectInput from '../../../common/forms/incorrectInput'
 
 const SignUp = ({ history }) => {
 

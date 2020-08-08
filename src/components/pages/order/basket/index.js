@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import Layout from '../../common/layout'
+import Layout from '../../../common/layout'
 import styles from './index.module.css'
 import { Link } from 'react-router-dom'
-import spliceNoMutate from '../../../functions/spliceNoMutate'
+import spliceNoMutate from '../../../../functions/spliceNoMutate'
 
 const Basket = () => {
     const items = sessionStorage.getItem('items')
