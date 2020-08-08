@@ -13,6 +13,7 @@ import Menu from './components/pages/main/menu'
 import ItemDetails from './components/pages/main/itemDetails'
 import Checkout from './components/pages/order/checkout'
 import Basket from './components/pages/order/basket'
+import NotFound from './components/pages/main/notFound'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <Route path='/pizzas/:name' component={ItemDetails}/>
           <Route path='/basket' component={Basket} />
           <PrivateRoute path='/checkout' component={Checkout}/>
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </AuthProvider>
