@@ -9,6 +9,7 @@ const Basket = () => {
     const itemsArray = JSON.parse(items)
     const amounts = itemsArray ? itemsArray.map(item => (item.amount)) : []
     const prices = itemsArray ? itemsArray.map(item => (item.price)) : []
+    const drinks = itemsArray ? itemsArray.map(item => (item.drink)) : []
     const pricesForOne = itemsArray ? itemsArray.map(item => (item.priceForOne)) : []
     const [itemsState, setItemsState] = useState(itemsArray);
     const [price, setPrice] = useState(prices)
@@ -69,7 +70,7 @@ const Basket = () => {
         sessionStorage.setItem('items', JSON.stringify(itemsArray))
     }
 
-    const subTotal = Number(price.reduce((a, b) => a + b, 0)).toFixed(2)
+    const subTotal = Number(price.reduce((a, b) => Number(a) + Number(b), 0)).toFixed(2)
     const delivery = 5.00
     const grandTotal = (Number(subTotal) + delivery).toFixed(2)
 
@@ -89,7 +90,7 @@ const Basket = () => {
 
                         {itemsState.map((item, index) => (
                             <div className={styles.product} key={item.name}>
-                                <div className={styles['product-image']}>
+                                <div className={`${styles['product-image']} ${styles[drinks[index]]}`}>
                                     <img src={item.image} />
                                 </div>
                                 <div className={styles['product-details']}>
@@ -103,7 +104,7 @@ const Basket = () => {
                                         Remove
                                     </button>
                                 </div>
-                                <div className={styles['product-line-price']}>{price[index].toFixed(2)}</div>
+                                <div className={styles['product-line-price']}>{Number(price[index]).toFixed(2)}</div>
                             </div>
                         ))}
 

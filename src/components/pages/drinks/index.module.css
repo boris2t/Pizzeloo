@@ -1,5 +1,5 @@
 .container {
-    background-image: url('../../../../images/bg.jpg');
+    background-image: url('../../../images/bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -35,8 +35,4 @@
 
 .filter:hover {
     background-color: rgb(255, 250, 219);
-}
-
-.drinks {
-    float: right;
 }

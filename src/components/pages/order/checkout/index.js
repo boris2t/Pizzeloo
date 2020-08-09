@@ -21,7 +21,7 @@ const Checkout = () => {
         parsedOrder.map(item => (
             simplifiedOrder.push({
                 item: item.name,
-                size: item.size,
+                size: item.size || '',
                 quantity: item.amount,
                 price: item.price
             })

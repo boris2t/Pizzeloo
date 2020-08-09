@@ -14,6 +14,7 @@ import ItemDetails from './components/pages/main/itemDetails'
 import Checkout from './components/pages/order/checkout'
 import Basket from './components/pages/order/basket'
 import NotFound from './components/pages/main/notFound'
+import Drinks from './components/pages/drinks'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/logout' component={Logout} />
           <AdminRoute path='/admin' component={Admin} />
           <Route exact path='/menu' component={Menu} />
+          <Route exact path='/menu/drinks' component={Drinks} />
           <Route path='/pizzas/:name' component={ItemDetails}/>
           <Route path='/basket' component={Basket} />
           <PrivateRoute path='/checkout' component={Checkout}/>

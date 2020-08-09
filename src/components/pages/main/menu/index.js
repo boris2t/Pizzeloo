@@ -3,6 +3,7 @@ import styles from './index.module.css'
 import Layout from '../../../common/layout'
 import fire from '../../../../fire'
 import MenuCards from '../../../menuCards'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
 
@@ -41,6 +42,7 @@ const Menu = () => {
                     <button onClick={() => handleFilter()} className={styles.filter}>All</button>
                     <button onClick={() => handleFilter('isSpicy')} className={styles.filter}>Spicy</button>
                     <button onClick={() => handleFilter('isVegerarian')} className={styles.filter}>Vegetarian</button>
+                    <Link to='/menu/drinks'><button className={`${styles.filter} ${styles.drinks}`}>Drinks</button></Link>
                 </div>
 
                 <div className={styles.row}>

@@ -12,3 +12,7 @@
   .btn:hover {
       background-color: rgb(7, 167, 7);
   }
+
+  .drink {
+      margin-left: 28px !important;
+  }
