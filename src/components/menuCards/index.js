@@ -36,7 +36,7 @@ const MenuCards = ({ items, loading, type }) => {
                             <img src={item.image} className={styles[drinkImgClass]} alt='meal'></img>
                             <h1>{item.name.toUpperCase()}</h1>
                             <hr className={styles.divider} />
-                            <p>{item.toppings || item.amount}</p>
+                            <p>{item.toppings || `$${item.price}`}</p>
                             <DealButton title={buttonText} handleOnClick={() => handleAdd(item)} drink={drink}/>
                         </div>
                     </MenuLink>

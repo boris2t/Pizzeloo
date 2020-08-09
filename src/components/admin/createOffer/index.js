@@ -11,6 +11,8 @@ const CreateOffer = () => {
     const [title, setTitle] = useState('')
     const [text, setText] = useState('')
     const [image, setImage] = useState('')
+    const [pizza, setPizza] = useState('')
+    const [drink, setDrink] = useState('')
     const history = useHistory()
 
     const handleSubmit = event => {
@@ -20,7 +22,9 @@ const CreateOffer = () => {
         db.collection('offers').add({
             title: title,
             text: text,
-            image: image
+            image: image,
+            pizza: pizza,
+            drink: drink
         })
 
         history.push('/')
@@ -46,6 +50,16 @@ const CreateOffer = () => {
                     id='image'
                     value={image}
                     onChange={e => setImage(e.target.value)} />
+                <FormInput
+                    label='Pizza - (Name/Size/Amount/Price/PriceOne)'
+                    id='pizza'
+                    value={pizza}
+                    onChange={e => setPizza(e.target.value)} />
+                <FormInput
+                    label='Drink - (Name/Amount/Price/PriceOne)'
+                    id='drink'
+                    value={drink}
+                    onChange={e => setDrink(e.target.value)} />
                 <SubmitButton value='Create' />
             </Form>
         </FormWrapper>
