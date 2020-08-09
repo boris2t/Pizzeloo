@@ -23,9 +23,26 @@ const Menu = () => {
         getPizzas()
     }, [])
 
+
+    const handleFilter = async (filter) => {
+        const db = fire.firestore()
+
+        const filteredData = filter
+            ? await db.collection('pizzas').where(filter, '==', true).get()
+            : await db.collection('pizzas').get()
+
+        setPizzas(filteredData.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
+
     return (
         <Layout sticky={true}>
             <div className={styles.container}>
+                <div className={styles.filters}>
+                    <button onClick={() => handleFilter()} className={styles.filter}>All</button>
+                    <button onClick={() => handleFilter('isSpicy')} className={styles.filter}>Spicy</button>
+                    <button onClick={() => handleFilter('isVegerarian')} className={styles.filter}>Vegetarian</button>
+                </div>
+
                 <div className={styles.row}>
                     <MenuCards items={pizzas} loading={loading} />
                 </div>

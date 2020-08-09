@@ -6,7 +6,7 @@
 }
 
 .row {
-    margin-top: 100px;
+    margin-top: 20px;
     margin-left: 185px;
     width: 87%;
 }
@@ -15,4 +15,24 @@
     content: "";
     display: table;
     clear: both;
+}
+
+.filters {
+    height: 50px;
+    width: 74.5%;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 90px 200px 0 auto;
+}
+
+.filter {
+    font-family: inherit;
+    padding: 6px 15px;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+}
+
+.filter:hover {
+    background-color: rgb(255, 250, 219);
 }
