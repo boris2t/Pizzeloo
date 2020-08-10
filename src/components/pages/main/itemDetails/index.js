@@ -1,18 +1,59 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from './index.module.css'
 import fire from '../../../../fire'
 import ArrowButton from '../../../common/buttons/arrowButton'
 import Layout from '../../../common/layout'
 import { useParams, useHistory } from 'react-router'
 import Spinner from '../../../common/spinner'
+import CustomizePizza from '../../../customizePizza'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')
     const [count, setCount] = useState(1)
     const [item, setItem] = useState({ name: '' })
+    const [price, setPrice] = useState(0)
+    const [weight, setWeight] = useState('')
+    const [priceForOne, setPriceForOne] = useState(0)
+    const [addedCost, setAddedCost] = useState(0)
     const [loading, setLoading] = useState(false)
+    const [toppings, setToppings] = useState([])
+    const [custom, setCustom] = useState()
     const params = useParams()
     const history = useHistory()
+
+    const priceRef = useRef()
+    priceRef.current = price
+    const addedCostRef = useRef()
+    addedCostRef.current = addedCost
+    const endRef = useRef(null)
+
+    useEffect(() => {
+        const originalPrice = Number(item.price)
+        switch (size) {
+            case 'small':
+                setPrice((originalPrice + addedCost) * count)
+                setPriceForOne(price)
+                setWeight(350)
+                break
+            case 'medium':
+                setPrice((originalPrice + addedCost) * 1.5 * count)
+                setPriceForOne(originalPrice * 1.5)
+                setWeight(550)
+                break
+            case 'large':
+                setPrice((originalPrice + addedCost) * 2 * count)
+                setPriceForOne(originalPrice * 2)
+                setWeight(800)
+        }
+    }, [size])
+
+    useEffect(() => {
+        const originalPrice = Number(item.price)
+        setPrice(originalPrice * count)
+        setPriceForOne(price)
+        setWeight(350)
+        setToppings(item.toppings)
+    }, [item])
 
     useEffect(() => {
         const getItem = async () => {
@@ -27,33 +68,36 @@ const ItemDetails = () => {
         getItem()
     }, [])
 
-    const originalPrice = Number(item.price)
-    let price = 0
-    let priceForOne = 0
-    let weight = ''
-
-    switch (size) {
-        case 'small':
-            price = originalPrice * count
-            priceForOne = price
-            weight = 350
-            break
-        case 'medium':
-            price = originalPrice * 1.5 * count
-            priceForOne = originalPrice * 1.5
-            weight = 550
-            break
-        case 'large':
-            price = originalPrice * 2 * count
-            priceForOne = originalPrice * 2
-            weight = 800
-    }
-
     const lowerCount = () => {
         if (count > 1) {
             setCount(count - 1)
         }
     }
+
+    const customizeCallback = (toppings, ingrPrice, isAdded) => {
+        const joinedToppings = toppings.join(', ')
+        setToppings(joinedToppings)
+
+        isAdded
+            ? setPrice(priceRef.current + Number(ingrPrice))
+            : setPrice(priceRef.current - Number(ingrPrice))
+
+        isAdded
+            ? setAddedCost(addedCostRef.current + Number(ingrPrice))
+            : setAddedCost(addedCostRef.current - Number(ingrPrice))
+    }
+
+    const handleCustomize = () => {
+        setCustom(<CustomizePizza toppings={item.toppings} parentCallback={customizeCallback} />)
+    }
+
+    useEffect(() => {
+       const deley = setTimeout(() => {
+            endRef.current.scrollIntoView({ behavior: "smooth" })
+        }, 300)
+
+        return () => clearTimeout(deley)
+    }, [custom])
 
     const handleAddToBasket = () => {
         const basketValue = sessionStorage.getItem('items')
@@ -81,15 +125,15 @@ const ItemDetails = () => {
                     <hr className={styles.divider} />
                     <div className={styles.left}>
                         <h2>TOPPINGS</h2>
-                        <p>{item.toppings}</p>
+                        <p>{toppings}</p>
                         <label className={styles['size-label']} htmlFor='size'>SIZE</label>
                         <select id='size' value={size} onChange={e => setSize(e.target.value)}>
                             <option value='small'>Small (6 slices)</option>
                             <option value='medium'>Medium (8 slices)</option>
                             <option value='large'>Large (12 slices)</option>
                         </select>
+                        <button className={styles.customize} onClick={handleCustomize}>Customize</button>
                     </div>
-                    <div className={styles.verticalDivider}></div>
                     <div className={styles.right}>
                         <h2>WEIGHT</h2>
                         <p>{weight}gr</p>
@@ -106,6 +150,8 @@ const ItemDetails = () => {
                         <button onClick={handleAddToBasket} className={styles.proceed}>ADD</button>
                     </div>
                 </div>
+                {custom}
+                <div ref={endRef}></div>
             </div>
         </Layout>
     )
