@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
 
     const [pizzas, setPizzas] = useState([])
+    const [allPizzas, setAllPizzas] = useState()
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -18,6 +19,7 @@ const Menu = () => {
             const data = await db.collection('pizzas').get()
 
             setPizzas(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+            setAllPizzas(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
             setLoading(false)
         }
 
@@ -26,13 +28,15 @@ const Menu = () => {
 
 
     const handleFilter = async (filter) => {
-        const db = fire.firestore()
+        if (!filter) {
+            setPizzas(allPizzas)
+            return
+        }
+        const filteredPizzas = allPizzas.filter((pizza) => {
+            return pizza[filter]
+        })
 
-        const filteredData = filter
-            ? await db.collection('pizzas').where(filter, '==', true).get()
-            : await db.collection('pizzas').get()
-
-        setPizzas(filteredData.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+        setPizzas(filteredPizzas)
     }
 
     return (

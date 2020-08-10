@@ -51,12 +51,12 @@ const CreateOffer = () => {
                     value={image}
                     onChange={e => setImage(e.target.value)} />
                 <FormInput
-                    label='Pizza - (Name/Size/Amount/Price/PriceOne)'
+                    label='Pizza - (Name/Size/Amount/Price)'
                     id='pizza'
                     value={pizza}
                     onChange={e => setPizza(e.target.value)} />
                 <FormInput
-                    label='Drink - (Name/Amount/Price/PriceOne)'
+                    label='Drink - (Name/Amount/Price)'
                     id='drink'
                     value={drink}
                     onChange={e => setDrink(e.target.value)} />
