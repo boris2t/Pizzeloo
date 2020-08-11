@@ -4,7 +4,7 @@ import Spinner from '../common/spinner'
 import DealButton from '../common/buttons/dealButton'
 import MenuLink from '../common/menuLink'
 
-const MenuCards = ({ items, loading, type }) => {
+const MenuCards = ({ items, loading, type, addedCallback, setAdded}) => {
     if (loading) {
         return (<Spinner />)
     } else {
@@ -26,6 +26,7 @@ const MenuCards = ({ items, loading, type }) => {
     
             basketArray.push(basketItem)
             sessionStorage.setItem('items', JSON.stringify(basketArray))
+            addedCallback(item.name, setAdded)
         }
 
         return (

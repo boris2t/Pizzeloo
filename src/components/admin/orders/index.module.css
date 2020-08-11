@@ -61,3 +61,11 @@ tbody {
     position: relative;
     margin-bottom: 15px;
 }
+
+.customizations {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 40px;
+    font-size: 14px;
+    color: green;
+}

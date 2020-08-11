@@ -23,7 +23,8 @@ const Checkout = () => {
                 item: item.name,
                 size: item.size || '',
                 quantity: item.amount,
-                price: item.price
+                price: item.price,
+                customization: item.customization || ''
             })
         ))
 

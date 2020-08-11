@@ -33,14 +33,16 @@ const Admin = () => {
 
     return (
         <Layout sticky={true}>
-            <div className={styles['btn-container']}>
-                <button onClick={handleCreateOffer} className={styles.btn}>Create Offer</button>
-                <button onClick={handleCreatePizza} className={styles.btn}>Create Pizza</button>
-                <button onClick={handleAddDrink} className={styles.btn}>Add Drink</button>
-                <button onClick={handleAddIngredient} className={styles.btn}>Add Ingredient</button>
-                <button onClick={handleGetOrders} className={styles.btn}>Orders</button>
+            <div className={styles.all}>
+                <div className={styles['btn-container']}>
+                    <button onClick={handleCreateOffer} className={styles.btn}>Create Offer</button>
+                    <button onClick={handleCreatePizza} className={styles.btn}>Create Pizza</button>
+                    <button onClick={handleAddDrink} className={styles.btn}>Add Drink</button>
+                    <button onClick={handleAddIngredient} className={styles.btn}>Add Ingredient</button>
+                    <button onClick={handleGetOrders} className={styles.btn}>Orders</button>
+                </div>
+                {component}
             </div>
-            {component}
         </Layout>
     )
 }

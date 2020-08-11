@@ -71,7 +71,7 @@ const Basket = () => {
     }
 
     const subTotal = Number(price.reduce((a, b) => Number(a) + Number(b), 0)).toFixed(2)
-    const delivery = 5.00
+    const delivery = 3.00
     const grandTotal = (Number(subTotal) + delivery).toFixed(2)
 
     return (

@@ -62,14 +62,19 @@ const Orders = () => {
                             <td className={styles['person-info']}>{order.phone}</td>
                             <td className={`${styles['person-info']} ${styles['person-adress']}`}>{order.adress}</td>
                         </tr>
-                        
+
                         {order.orderedItems.map(item => (
-                            <tr key={item.item} className={styles.items}>
-                                <td className={styles['items-info']}>{item.item}</td>
-                                <td className={styles['items-info']}>{item.quantity}</td>
-                                <td className={styles['items-info']}>{item.size}</td>
-                                <td className={styles['items-info']}>{Number(item.price).toFixed(2)}</td>
-                            </tr>
+                            <Fragment key={item.item}>
+                                <tr className={styles.items}>
+                                    <td className={styles['items-info']}>{item.item}</td>
+                                    <td className={styles['items-info']}>{item.quantity}</td>
+                                    <td className={styles['items-info']}>{item.size}</td>
+                                    <td className={styles['items-info']}>{Number(item.price).toFixed(2)}</td>
+                                </tr>
+                                <tr className={styles.customizations}>
+                                    <td><p>{item.customization}</p></td>
+                                </tr>
+                            </Fragment>
                         ))}
                         <tr>
                             <td><DealButton title='COMPLETE' handleOnClick={() => handleComplete(order.id)} /></td>

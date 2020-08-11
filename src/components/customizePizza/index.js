@@ -28,11 +28,11 @@ const CustomizePizza = ({ toppings, parentCallback }) => {
             const index = newToppings.indexOf(name)
             newToppings.splice(index, 1)
             setCurrentToppings(newToppings)
-            parentCallback(newToppings, price, false)
+            parentCallback(newToppings, price, false, `-${name}`)
         } else {
             newToppings.push(name)
             setCurrentToppings(newToppings)
-            parentCallback(newToppings, price, true)
+            parentCallback(newToppings, price, true, `+${name}`)
         }
     }
 

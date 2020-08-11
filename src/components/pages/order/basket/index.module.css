@@ -1,7 +1,10 @@
 .container {
-  margin-top: 150px;
+  background: url('../../../../images/bg.jpg') no-repeat center;
+  background-size: cover;
+  margin-top: 100px;
+  margin-bottom: 60px;
   width: 100%;
-  height: 100vh;
+  overflow: hidden;
 }
 
 .empty {

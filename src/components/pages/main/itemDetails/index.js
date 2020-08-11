@@ -6,6 +6,8 @@ import Layout from '../../../common/layout'
 import { useParams, useHistory } from 'react-router'
 import Spinner from '../../../common/spinner'
 import CustomizePizza from '../../../customizePizza'
+import Added from '../../../common/notications/added'
+import showAddedNotification from '../../../../functions/showAddedNotification'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')
@@ -17,15 +19,18 @@ const ItemDetails = () => {
     const [addedCost, setAddedCost] = useState(0)
     const [loading, setLoading] = useState(false)
     const [toppings, setToppings] = useState([])
+    const [ingredients, setIngredients] = useState('')
     const [custom, setCustom] = useState()
+    const [added, setAdded] = useState()
     const params = useParams()
-    const history = useHistory()
 
     const priceRef = useRef()
     priceRef.current = price
     const addedCostRef = useRef()
     addedCostRef.current = addedCost
     const endRef = useRef(null)
+    const ingredientsRef = useRef()
+    ingredientsRef.current = ingredients
 
     useEffect(() => {
         const originalPrice = Number(item.price)
@@ -45,7 +50,7 @@ const ItemDetails = () => {
                 setPriceForOne(originalPrice * 2)
                 setWeight(800)
         }
-    }, [size])
+    }, [size, count])
 
     useEffect(() => {
         const originalPrice = Number(item.price)
@@ -74,9 +79,10 @@ const ItemDetails = () => {
         }
     }
 
-    const customizeCallback = (toppings, ingrPrice, isAdded) => {
+    const customizeCallback = (toppings, ingrPrice, isAdded, ingredient) => {
         const joinedToppings = toppings.join(', ')
         setToppings(joinedToppings)
+        setIngredients(ingredientsRef.current + ' ' + ingredient)
 
         isAdded
             ? setPrice(priceRef.current + Number(ingrPrice))
@@ -92,7 +98,7 @@ const ItemDetails = () => {
     }
 
     useEffect(() => {
-       const deley = setTimeout(() => {
+        const deley = setTimeout(() => {
             endRef.current.scrollIntoView({ behavior: "smooth" })
         }, 300)
 
@@ -108,17 +114,19 @@ const ItemDetails = () => {
             size: size,
             price: price,
             priceForOne: priceForOne,
-            image: item.image
+            image: item.image,
+            customization: ingredients
         }
 
         basketArray.push(basketItem)
         sessionStorage.setItem('items', JSON.stringify(basketArray))
-        history.push('/menu')
+        showAddedNotification(item.name, setAdded)
     }
 
     return loading ? (<Spinner />) : (
         <Layout sticky={true}>
             <div className={styles.container}>
+                {added}
                 <div className={styles['details-container']}>
                     <img src={item.image} alt='meal'></img>
                     <h1>{item.name.toUpperCase()}</h1>
