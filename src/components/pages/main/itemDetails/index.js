@@ -3,11 +3,10 @@ import styles from './index.module.css'
 import fire from '../../../../fire'
 import ArrowButton from '../../../common/buttons/arrowButton'
 import Layout from '../../../common/layout'
-import { useParams, useHistory } from 'react-router'
+import { useParams } from 'react-router'
 import Spinner from '../../../common/spinner'
 import CustomizePizza from '../../../customizePizza'
-import Added from '../../../common/notications/added'
-import showAddedNotification from '../../../../functions/showAddedNotification'
+import { useToasts } from 'react-toast-notifications'
 
 const ItemDetails = () => {
     const [size, setSize] = useState('small')
@@ -21,8 +20,8 @@ const ItemDetails = () => {
     const [toppings, setToppings] = useState([])
     const [ingredients, setIngredients] = useState('')
     const [custom, setCustom] = useState()
-    const [added, setAdded] = useState()
     const params = useParams()
+    const { addToast } = useToasts()
 
     const priceRef = useRef()
     priceRef.current = price
@@ -120,13 +119,12 @@ const ItemDetails = () => {
 
         basketArray.push(basketItem)
         sessionStorage.setItem('items', JSON.stringify(basketArray))
-        showAddedNotification(item.name, setAdded)
+        addToast(`${item.name} succsessfully added to the basket!`, { appearance: 'success', })
     }
 
     return loading ? (<Spinner />) : (
         <Layout sticky={true}>
             <div className={styles.container}>
-                {added}
                 <div className={styles['details-container']}>
                     <img src={item.image} alt='meal'></img>
                     <h1>{item.name.toUpperCase()}</h1>

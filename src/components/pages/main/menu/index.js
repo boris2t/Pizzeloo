@@ -6,7 +6,6 @@ import MenuCards from '../../../menuCards'
 import { Link } from 'react-router-dom'
 
 const Menu = () => {
-
     const [pizzas, setPizzas] = useState([])
     const [allPizzas, setAllPizzas] = useState()
     const [loading, setLoading] = useState(false)

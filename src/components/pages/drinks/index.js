@@ -4,13 +4,10 @@ import Layout from '../../common/layout'
 import MenuCards from '../../menuCards'
 import { Link } from 'react-router-dom'
 import fire from '../../../fire'
-import showAddedNotification from '../../../functions/showAddedNotification'
-
 
 const Drinks = () => {
     const [drinks, setDrinks] = useState([])
     const [loading, setLoading] = useState(false)
-    const [added, setAdded] = useState()
 
     useEffect(() => {
         const getDrinks = async () => {
@@ -29,13 +26,12 @@ const Drinks = () => {
     return (
         <Layout sticky={true}>
             <div className={styles.container}>
-                {added}
                 <div className={styles.filters}>
                     <Link to='/menu'><button className={styles.filter}>Pizzas</button></Link>
                 </div>
 
                 <div className={styles.row}>
-                    <MenuCards items={drinks} loading={loading} type='drinks' addedCallback={showAddedNotification} setAdded={setAdded}/>
+                    <MenuCards items={drinks} loading={loading} type='drinks' />
                 </div>
             </div>
         </Layout>

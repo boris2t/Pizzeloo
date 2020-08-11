@@ -3,8 +3,11 @@ import styles from './index.module.css'
 import Spinner from '../common/spinner'
 import DealButton from '../common/buttons/dealButton'
 import MenuLink from '../common/menuLink'
+import { useToasts } from 'react-toast-notifications'
 
-const MenuCards = ({ items, loading, type, addedCallback, setAdded}) => {
+const MenuCards = ({ items, loading, type}) => {
+    const { addToast } = useToasts()
+
     if (loading) {
         return (<Spinner />)
     } else {
@@ -26,7 +29,7 @@ const MenuCards = ({ items, loading, type, addedCallback, setAdded}) => {
     
             basketArray.push(basketItem)
             sessionStorage.setItem('items', JSON.stringify(basketArray))
-            addedCallback(item.name, setAdded)
+            addToast(`${item.name} succsessfully added to the basket!`, { appearance: 'success' })
         }
 
         return (
